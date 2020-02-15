@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+.align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    height: 150px;
+    width: 300px;
+    background: darkmagenta;
+}
+
+.art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("./bg.png");
+    background-size: cover;
+    filter: blur(10px);
+    z-index: 10;
+    opacity: 0.8;
+}
+
+#btn-copy {
+    height: 40px;
+    width: 250px;
+    padding: 2px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background: rgb(0, 204, 204);
+    cursor: pointer;
+    transition: box-shadow .5s, transform .5s;
+    z-index: 1000;
+}
+
+#btn-copy:hover {
+    background-color: cornflowerblue;
+    box-shadow: 5px 10px 20px #646464;
+    transform: scale(1.05);
+    color: white;
+    font-weight: 700;
+}
+
+#loading-icon {
+    z-index: 9;
+    height: 100%;
+    overflow: hidden;
+}
+
+#num {
+    color: purple;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-right: 7px;
+}
+
+.remove {
+    display: none;
+}

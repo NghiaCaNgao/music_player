@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music for love</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon shortcut" href="./icon.png">
+</head>
+
+<body>
+    <section class="app">
+        <div class="bg" id="bg_page"></div>
+        <div class="fill-color"></div>
+        <div class="content align">
+            <div class="music-player">
+                <div class="play-track" id="play-track">
+                    <div class="title align">
+                        <div class="context-title">
+                            <h1 id="Song_Name_Playing">Lá xa lìa cành</h1>
+                            <h3 id="Artist_Playing">Trịnh Đình Quang</h3>
+                        </div>
+                    </div>
+                    <div class="track align">
+                        <div class="timmer">
+                            <div class="track-time">
+                                <span class="current-time" id="cur">00:00</span>
+                                <span class="length-time" id="length">02:00</span>
+                            </div>
+                            <div class="track-range" id="track-range">
+                                <div class="track-style select" id="selectTime"></div>
+                                <div class="tooltip" id="tooltip"></div>
+                                <div class="track-style now" id="nowTime"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-box-al" id="box-al">
+                    <div class="album">
+                        <img id="album_song_image">
+                        <svg class="loading" id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                            <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" style="animation-play-state: running; animation-delay: 0s;" transform="rotate(115.051 50 50)">
+                          <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1" style="animation-play-state: running; animation-delay: 0s;"/>
+                            </circle>
+                        </svg>
+                    </div>
+                </div>
+                <div class="player-control">
+                    <div class="player-control-btn" id="btn_pre"><i class="fas fa-backward"></i></div>
+                    <div class="player-control-btn" id="play"><i class="fas fa-play"></i></div>
+                    <div class="player-control-btn" id="btn_next"><i class="fas fa-forward"></i></div>
+                    <div class="small player-control-btn align" id="mode"><i class="fas fa-redo"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="list-music" id="list-music">
+            <div class="btn-more">
+                <div class="player-control-btn btn-more-btn align" id="btn-more-2">
+                    <i class="fas fa-angle-double-left"></i>
+                </div>
+            </div>
+            <div class="data">
+                <div class="control-data align">
+                    <input id="getFromServer" type="text" class="btn-square" placeholder="Enter your code">
+                    <button class="btn-square" id="import" title="Nạp dữ liệu từ clipboard">Nạp dữ liệu từ Clipboard</button>
+                    <button class="btn-square" id="code_share"></button>
+                </div>
+                <div class="view-list" id="list">
+                </div>
+            </div>
+        </div>
+        <div class="infor">dscsd</div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>

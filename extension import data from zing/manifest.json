@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Import Data",
+    "version": "0.0.0.1",
+
+    "description": "Import playlist from zing",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+
+    "browser_action": {
+        "default_icon": {
+            "16": "icon.png",
+            "24": "icon.png",
+            "32": "icon.png"
+        },
+        "default_title": "Let make your playlist in Zingmp3",
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "activeTab"
+    ]
+}
