@@ -23,6 +23,7 @@ var selectTime = document.getElementById("selectTime");
 var tooltip = document.getElementById("tooltip");
 var nowTime = document.getElementById("nowTime");
 var trackRange = document.getElementById("track-range");
+var inforMes = document.getElementById("infor");
 
 var curNum;
 var playloader;
@@ -143,7 +144,8 @@ function playMusic(isSample) {
             setCurTime();
         })
         .catch(error => {
-            alert("Lỗi mất rồi. Bài này đíu thể nghe được. Chuyển bài tiếp theo");
+            console.log("Lỗi mất rồi. Bài này đíu thể nghe được. Chuyển bài tiếp theo", "danger");
+
             console.log(error);
 
         });
@@ -195,7 +197,7 @@ function playPauseAudio(override) { //pause va play audio
                     playMusic(true);
                 }
             } else {
-                alert("Không có bài hát nào");
+                log("Không có bài hát nào", "danger");
             }
         }
     }
@@ -220,16 +222,17 @@ function xly(dataInput) { //get du lieu tu chrome extension
                     obj.streamings &&
                     obj.lyric
                 ) {
-                    alert("Load xong rồi");
+                    log("Load xong rồi", "success");
+
                     // console.log(obj);
                     resolve(obj);
                 } else {
-                    alert("Load rồi nhưng lỗi dữ liệu");
+                    log("Load rồi nhưng lỗi dữ liệu", "danger");
                 }
             })
             .catch(
                 function() {
-                    alert("Lỗi mất rồi :((");
+                    log("Lỗi mất rồi :((", "danger");
                 });
     });
 }
@@ -477,6 +480,52 @@ trackRange.addEventListener("mouseout", function() {
     hidenHover();
 });
 
+//Get from server
+var queueMsg = [];
+
+function log(msg, feel) {
+    queueMsg.push({ message: msg, color: feel });
+    if (inforMes.classList.contains("showInfor") || inforMes.classList.contains("showInfor2")) {
+        return;
+    } else {
+        inforMes.classList.add("showInfor");
+        inforMes.innerHTML = queueMsg[0].message;
+        console.log();
+
+        inforMes.style.background = `var(--${queueMsg[0].color})`;
+
+        inforMes.addEventListener("animationend", function() {
+            let isInfor1 = this.classList.contains("showInfor");
+            this.classList.remove("showInfor");
+            this.classList.remove("showInfor2");
+            queueMsg.splice(0, 1);
+            if (queueMsg.length > 0) {
+                if (isInfor1) {
+                    this.classList.add("showInfor2");
+                } else {
+                    this.classList.add("showInfor");
+                }
+                this.innerHTML = queueMsg[0].message;
+                this.style.background = `var(--${queueMsg[0].color})`;
+            }
+        });
+    }
+}
+
+function getFromServer(idList) {
+    console.log(idList);
+    log(idList, "infor");
+}
+
+btn_getFromServer.addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
+        getFromServer(btn_getFromServer.value);
+    }
+});
+
+
+
+
 
 //-----------------End event handle-----------
 
@@ -485,9 +534,8 @@ trackRange.addEventListener("mouseout", function() {
 
 
 
-
 // init
-function intit() {
+function init() {
     getData();
     autoSave();
     creatAllList();
@@ -506,4 +554,4 @@ function intit() {
     play_track.classList.add("remove");
 }
 
-intit();
+init();
